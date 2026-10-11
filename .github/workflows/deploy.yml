@@ -8,8 +8,8 @@ on:
 env:
   PROJECT_ID: raidschedule
   REGION: us-central1
-  SERVICE: homepage
-  IMAGE: us-central1-docker.pkg.dev/raidschedule/raidschedule/homepage
+  SERVICE: landingpage
+  IMAGE: us-central1-docker.pkg.dev/raidschedule/raidschedule/landingpage
 
 jobs:
   test:
@@ -37,7 +37,7 @@ jobs:
         with:
           project_id: ${{ env.PROJECT_ID }}
           workload_identity_provider: projects/538937472443/locations/global/workloadIdentityPools/github-pool/providers/github-provider
-          service_account: homepage-deployer@raidschedule.iam.gserviceaccount.com
+          service_account: landingpage-deployer@raidschedule.iam.gserviceaccount.com
 
       - uses: google-github-actions/setup-gcloud@v2
 
