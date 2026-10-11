@@ -1,0 +1,5 @@
+/* Zerpy — webfonts
+   Instrument Sans (UI + copy) and Roboto Mono (data + micro-labels), served from
+   Google Fonts. If you need self-hosted binaries, drop the .woff2 files in
+   assets/fonts/ and replace this import with @font-face rules. */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap');

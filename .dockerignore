@@ -1,0 +1,8 @@
+node_modules
+dist
+.git
+.github
+.claude
+.DS_Store
+design_handoff_zerpy_landing
+deploy

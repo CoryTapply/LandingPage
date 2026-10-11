@@ -1,0 +1,17 @@
+.ground {
+  position: relative;
+  min-height: 100vh;
+  background: var(--zp-ground);
+}
+
+.starfield {
+  position: absolute;
+  inset: 0;
+  background-image: var(--zp-starfield);
+  opacity: var(--zp-starfield-opacity);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+}

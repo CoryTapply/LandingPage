@@ -1,0 +1,102 @@
+/* Zerpy — color (dark, the primary theme)
+   Dark glass. One saturated accent (blurple), everything else desaturated.
+   Surfaces are translucent tints over the ground, never opaque fills.
+   Light-theme overrides live in theme-light.css and re-declare every token here. */
+:root {
+  color-scheme: dark;
+
+  /* ── Ground ─────────────────────────────────────────────── */
+  --zp-bg:            #08080f;  /* page floor */
+  --zp-bg-raised:     #0b0c14;  /* app shell, gutters */
+  --zp-bg-lifted:     #0d0e18;  /* top of a page gradient */
+
+  /* Layered page ground (apply to the outermost element) */
+  --zp-ground:
+    radial-gradient(110% 70% at 15% -10%, rgba(74,62,140,.34) 0%, rgba(74,62,140,0) 60%),
+    radial-gradient(90% 60% at 90% 5%, rgba(96,64,132,.22) 0%, rgba(96,64,132,0) 55%),
+    linear-gradient(180deg, var(--zp-bg-lifted) 0%, var(--zp-bg-raised) 60%, var(--zp-bg) 100%);
+
+  /* Faint starfield. Overlay layer, pointer-events:none, opacity .28–.34 */
+  --zp-starfield:
+    radial-gradient(1px 1px at 14% 20%, #fff, transparent),
+    radial-gradient(1px 1px at 38% 9%, #cfc9ff, transparent),
+    radial-gradient(1.3px 1.3px at 61% 28%, #fff, transparent),
+    radial-gradient(1px 1px at 79% 14%, #bfe0ff, transparent),
+    radial-gradient(1px 1px at 24% 66%, #e6dcff, transparent),
+    radial-gradient(1.2px 1.2px at 49% 82%, #fff, transparent),
+    radial-gradient(1px 1px at 71% 71%, #cfc9ff, transparent),
+    radial-gradient(1px 1px at 93% 88%, #fff, transparent); /* @kind color */
+  --zp-starfield-opacity: .3; /* @kind other */
+
+  /* ── Surfaces (translucent tints, not opaque fills) ─────── */
+  --zp-surface-1: rgba(255,255,255,.028);
+  --zp-surface-2: rgba(255,255,255,.045);
+  --zp-surface-3: rgba(255,255,255,.070);
+  --zp-surface-panel:   linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.012));
+  --zp-surface-overlay: linear-gradient(160deg, rgba(30,28,62,.90), rgba(12,11,26,.93));
+  /* Inputs sit *below* the ground plane, not on it — a recessed well. */
+  --zp-surface-field:  rgba(10,9,24,.60);
+  --zp-surface-inset:  rgba(10,9,24,.50);
+  /* The 16px box of a checkbox / radio / bare choice mark. */
+  --zp-surface-choice: rgba(255,255,255,.04);
+  /* Opaque inner face of the orbiting CTA — must hide the ring behind it. */
+  --zp-cta-inner: linear-gradient(180deg, rgba(26,24,54,.96), rgba(12,11,28,.98)); /* @kind color */
+
+  /* ── Lines ──────────────────────────────────────────────── */
+  --zp-line:        rgba(150,145,200,.14);
+  --zp-line-strong: rgba(150,145,200,.24);
+  --zp-line-accent: rgba(169,156,240,.55);
+  /* Rules inside dense grids fade at both ends rather than stopping hard */
+  --zp-rule-fade: linear-gradient(90deg, rgba(150,145,200,.03), rgba(150,145,200,.16), rgba(150,145,200,.03)); /* @kind color */
+  --zp-rule-fade-weak: linear-gradient(90deg, rgba(150,145,200,.03), rgba(150,145,200,.06), rgba(150,145,200,.03)); /* @kind color */
+
+  /* ── Text ───────────────────────────────────────────────── */
+  --zp-text:      #f2f1fb;
+  --zp-text-2:    rgba(214,211,238,.78);
+  --zp-text-3:    rgba(206,203,232,.60);
+  --zp-text-4:    rgba(190,186,220,.45);
+  --zp-text-on-accent: #0c0a18;
+
+  /* ── Accent ramp (blurple) ──────────────────────────────────
+     100 is the readable end (text on an accent tint), 900 the deepest.
+     The light theme reverses the ramp, so a component that writes
+     accent-100 on accent-tint stays legible in both. */
+  --zp-accent-100: #ece9ff;
+  --zp-accent-200: #d8d2ff;
+  --zp-accent-300: #c4bbff;
+  --zp-accent-400: #a99cf0;
+  --zp-accent:     #9184d9;
+  --zp-accent-600: #7669b8;
+  --zp-accent-700: #5b5093;
+  --zp-accent-800: #423a6d;
+  --zp-accent-900: #2b2649;
+  --zp-accent-tint:        rgba(145,132,217,.16);
+  --zp-accent-tint-strong: rgba(145,132,217,.28);
+  --zp-accent-glow:        0 0 16px rgba(145,132,217,.28);
+  --zp-accent-glow-strong: 0 0 0 1px rgba(169,156,240,.6), 0 0 38px rgba(145,132,217,.45), 0 0 84px rgba(145,132,217,.24);
+
+  /* Gradient for display text (background-clip: text) and rare emphasis */
+  --zp-gradient-text: linear-gradient(94deg, #ffffff 0%, #cdc4ff 52%, #e3b8ee 100%);
+
+  /* ── Status ─────────────────────────────────────────────── */
+  --zp-success: #5ec48a;
+  --zp-warning: #e8a44c;
+  --zp-danger:  #e8636b;
+  --zp-info:    #6ea8fe;
+  --zp-success-tint: rgba(94,196,138,.16);
+  --zp-warning-tint: rgba(232,164,76,.16);
+  --zp-danger-tint:  rgba(232,99,107,.16);
+  --zp-info-tint:    rgba(110,168,254,.16);
+  /* Border + readable-text pairs, so a semantic control needs no literals. */
+  --zp-success-line: rgba(94,196,138,.40);
+  --zp-warning-line: rgba(232,164,76,.40);
+  --zp-danger-line:  rgba(232,99,107,.55);
+  --zp-info-line:    rgba(110,168,254,.40);
+  --zp-danger-text:  #ffdfe1;
+  --zp-danger-tint-strong: rgba(232,99,107,.26);
+  --zp-danger-glow:        rgba(232,99,107,.45);
+  --zp-danger-glow-strong: rgba(232,99,107,.6);
+
+  /* ── Loading ────────────────────────────────────────────── */
+  --zp-skeleton: linear-gradient(90deg, rgba(255,255,255,.04) 18%, rgba(255,255,255,.10) 42%, rgba(255,255,255,.04) 66%); /* @kind color */
+}

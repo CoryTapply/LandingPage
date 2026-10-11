@@ -1,0 +1,96 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  box-sizing: border-box;
+  padding: 72px 16px; /* side gutter mirrors HERO_GUTTER in config.ts */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--zp-font-ui);
+  overflow-x: clip;
+}
+
+.headline {
+  margin: 0;
+  padding-left: .16em; /* balances the trailing letter-spacing */
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: .16em;
+  color: var(--zp-text);
+  text-wrap: balance;
+}
+
+.message {
+  margin: 20px 0 0;
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.4;
+  color: var(--zp-text-3);
+  text-wrap: balance;
+}
+
+/* Full-width slot the row is measured against; the row itself is centered in it. */
+.rowSpace {
+  width: 100%;
+  margin-top: clamp(56px, 13.4svh, 120px);
+  display: flex;
+  justify-content: center;
+}
+
+.progress {
+  margin-top: clamp(48px, 10.5svh, 94px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.bar {
+  display: flex;
+  gap: 3px;
+  width: 288px;
+}
+
+.segment {
+  flex: 1;
+  height: 7px;
+  box-sizing: border-box;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--zp-line);
+  overflow: hidden;
+  position: relative;
+}
+
+.fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--zp-accent);
+  opacity: .85;
+}
+
+.status {
+  font-family: var(--zp-font-data);
+  font-size: 15px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--zp-text-3);
+  white-space: nowrap;
+}
+
+/* Fixed width so the label doesn't shift as the dots cycle. */
+.dots {
+  display: inline-block;
+  width: 30px;
+  text-align: left;
+}
+
+@media (max-width: 639px) {
+  .bar { width: 240px; }
+  .status { font-size: 12px; }
+  .dots { width: 24px; }
+}

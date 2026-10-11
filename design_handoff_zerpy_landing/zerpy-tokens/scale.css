@@ -1,0 +1,33 @@
+/* Zerpy — viewport scaling
+   Type and space scale on INDEPENDENT multipliers. Type grows faster than
+   space, so a 4K screen gets larger text AND relatively tighter chrome —
+   more content per screen than a uniform browser zoom would give.
+
+   Breakpoints are CSS px, so a HiDPI 4K panel (3840 physical / 1920 logical)
+   correctly stays at 1× — it is already readable. Only genuinely wide
+   logical viewports scale up.
+
+   Opt out per subtree with [data-scale="fixed"]; tighten with
+   [data-density="compact"] (space only, type untouched). */
+:root {
+  --zp-scale-type:  1;
+  --zp-scale-space: 1;
+
+  /* Layout ceilings that widen with the viewport. */
+  --zp-shell-max: 1200px;   /* app shell / page container */
+  --zp-measure:   68ch;     /* prose column */
+  --zp-grid-min:  260px;    /* auto-fill card minimum */
+}
+
+@media (min-width: 2000px) {
+  :root { --zp-scale-type: 1.08; --zp-scale-space: 1; --zp-shell-max: 1520px; --zp-grid-min: 280px; }
+}
+@media (min-width: 2560px) {
+  :root { --zp-scale-type: 1.16; --zp-scale-space: 1.04; --zp-shell-max: 1920px; --zp-grid-min: 300px; }
+}
+@media (min-width: 3400px) {
+  :root { --zp-scale-type: 1.28; --zp-scale-space: 1.10; --zp-shell-max: 2560px; --zp-grid-min: 320px; }
+}
+
+[data-density="compact"] { --zp-scale-space: calc(var(--zp-scale-space, 1) * .88); }
+[data-scale="fixed"]     { --zp-scale-type: 1; --zp-scale-space: 1; }

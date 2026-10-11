@@ -1,0 +1,8 @@
+html,
+body {
+  margin: 0;
+  background: var(--zp-bg);
+  color: var(--zp-text);
+  font-family: var(--zp-font-ui);
+  -webkit-font-smoothing: antialiased;
+}

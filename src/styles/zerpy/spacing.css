@@ -1,0 +1,30 @@
+/* Zerpy — space and radius
+   4px base with a roomier top end. Sharp baseline radius: 4px on controls,
+   cards and panels; only overlays and full-page shells go rounder.
+
+   Space and control heights scale with the viewport (see tokens/scale.css).
+   Radii deliberately do NOT — the sharp edge is an identity, not a size. */
+:root {
+  --zp-space-1:  calc(4px  * var(--zp-scale-space, 1));
+  --zp-space-2:  calc(8px  * var(--zp-scale-space, 1));
+  --zp-space-3:  calc(12px * var(--zp-scale-space, 1));
+  --zp-space-4:  calc(16px * var(--zp-scale-space, 1));
+  --zp-space-5:  calc(20px * var(--zp-scale-space, 1));
+  --zp-space-6:  calc(24px * var(--zp-scale-space, 1));
+  --zp-space-7:  calc(32px * var(--zp-scale-space, 1));
+  --zp-space-8:  calc(40px * var(--zp-scale-space, 1));
+  --zp-space-9:  calc(56px * var(--zp-scale-space, 1));
+  --zp-space-10: calc(72px * var(--zp-scale-space, 1));
+
+  --zp-radius-xs: 2px;
+  --zp-radius:    4px;   /* default: controls, cards, panels */
+  --zp-radius-md: 8px;   /* overlays, dialogs */
+  --zp-radius-lg: 12px;  /* full-page glass shells */
+  --zp-radius-pill: 999px;
+
+  /* Control heights — the three sizes every control shares.
+     Tied to type scale so hit targets track text, never below 30px. */
+  --zp-control-h-sm: calc(30px * var(--zp-scale-type, 1));
+  --zp-control-h:    calc(38px * var(--zp-scale-type, 1));
+  --zp-control-h-lg: calc(46px * var(--zp-scale-type, 1));
+}
